@@ -1,13 +1,9 @@
-# Stage 1: Build the Angular app
-FROM node:14 AS build
-WORKDIR /usr/src/app
-COPY package*.json ./
-RUN npm install
+#stage 1
+FROM node:latest as node
+WORKDIR /app
 COPY . .
-RUN npm run build --prod
-
-# Stage 2: Serve the Angular app with a lightweight web server
+RUN npm install
+RUN npm run build
+#stage 2
 FROM nginx:alpine
-COPY --from=build /usr/src/app/dist/contact-manager-front /usr/share/nginx/html
-EXPOSE 4200
-CMD ["nginx", "-g", "daemon off;"]
+COPY --from=node /app/dist/contact-manager-front /usr/share/nginx/html
