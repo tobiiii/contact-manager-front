@@ -8,16 +8,17 @@ import { ContactComponent } from './contact/contact.component';
 import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
-  {path:'',component:LoginComponent},
-  {path:'user',component:UserComponent},
-  {path:'company',component:CompanyComponent},
-  {path:'profile',component:ProfileComponent},
-  {path:'logout',component:LogoutComponent},
-  {path:'contact',component:ContactComponent}
+  { path: '', component: LoginComponent },
+  { path: 'user', component: UserComponent },
+  { path: 'company', component: CompanyComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'logout', component: LogoutComponent },
+  { path: 'contact', component: ContactComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
