@@ -101,7 +101,7 @@ export class UtilsService {
   }
 
   getBaseUrl(){
-    return 'https://contactmanager-5uk5.onrender.com/';
+    return 'https://contactmanager-5uk5.onrender.com/api/';
   }
 
   openSnackBar(message: string, action: string = 'ok') {
