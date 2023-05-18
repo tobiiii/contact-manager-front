@@ -1,15 +1,15 @@
 <div mat-dialog-title>
-    <h1>Profile Form</h1>
+    <h1>{{'Profile Form' | translate}}</h1>
 </div>
 <form [formGroup]="profileForm" (ngSubmit)="onFormSubmit()">
     <div mat-dialog-content class="content">
         <div class="row">
             <mat-form-field appearance="outline">
-                <mat-label>Code</mat-label>
+                <mat-label>{{'Code' | translate}}</mat-label>
                 <input matInput type="text" placeholder="Ex. ADMIN" formControlName="code">
             </mat-form-field>
             <mat-form-field appearance="outline">
-                <mat-label>Name</mat-label>
+                <mat-label>{{'Name' | translate}}</mat-label>
                 <input matInput type="text" placeholder="Ex. Super Admin" formControlName="name">
             </mat-form-field>
         </div>
@@ -26,7 +26,7 @@
 
     </div>
     <div mat-dialog-actions class="action">
-        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
-        <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'}}</button>
+        <button mat-raised-button type="button" [mat-dialog-close]="false">{{'Cancel' | translate}}</button>
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'| translate}}</button>
     </div>
 </form>

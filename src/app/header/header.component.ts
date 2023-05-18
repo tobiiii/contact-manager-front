@@ -6,6 +6,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  lang:string | undefined;
   sideBarOpen = true;
   userFullName = "";
   @Output() toggleSidebarForMe: EventEmitter<any> = new EventEmitter();
@@ -13,6 +14,7 @@ export class HeaderComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    this.lang=localStorage.getItem('lang') || 'en';
     let res
     let stringData = localStorage.getItem('authUser');
     if (stringData) {
@@ -23,5 +25,10 @@ export class HeaderComponent implements OnInit {
 
   toggleSidebar() {
     this.toggleSidebarForMe.emit();
+  }
+
+  changeLang(lang: string){
+    localStorage.setItem('lang',lang);
+    window.location.reload();
   }
 }

@@ -6,7 +6,11 @@ mat-toolbar {
   ul li {
     list-style: none;
   }
-  button {
+mat-form-field {
+  color: #0f172a;
+}
+
+button {
     outline: none;
     border: 0;
     background: transparent;
@@ -24,10 +28,20 @@ mat-toolbar {
     height: 50px;
   }
   .user-image-icon {
-    height: 18px;
+    height: 30px;
     font-size: 16px;
   }
   ::ng-deep .mat-menu-content {
     width: 160px;
   }
-  
+
+  select {
+    border-radius: 10%;
+
+    width: 100px;
+    height: 40px;
+    background: #0f172a ;
+    color: white;
+
+  }
+

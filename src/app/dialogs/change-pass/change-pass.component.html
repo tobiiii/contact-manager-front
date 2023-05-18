@@ -1,15 +1,15 @@
 <div mat-dialog-title>
-    <h1>Change user password</h1>
+    <h1>Change user password{{'Change user password' | translate}}</h1>
 </div>
 <form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
     <div mat-dialog-content class="content">
         <div class="row">
             <mat-form-field appearance="outline">
-                <mat-label>Old password</mat-label>
+                <mat-label>Old password{{'Old password' | translate}}</mat-label>
                 <input matInput type="text" formControlName="oldpass">
             </mat-form-field>
             <mat-form-field appearance="outline">
-                <mat-label>New password</mat-label>
+                <mat-label>{{'New password' | translate}}</mat-label>
                 <input matInput type="text" formControlName="newpass">
             </mat-form-field>
         </div>
@@ -17,7 +17,7 @@
 
     </div>
     <div mat-dialog-actions class="action">
-        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
-        <button mat-raised-button color="primary" type="submit">save</button>
+        <button mat-raised-button type="button" [mat-dialog-close]="false">{{'Cancel' | translate}}</button>
+        <button mat-raised-button color="primary" type="submit">{{'save' | translate}}</button>
     </div>
 </form>

@@ -1,11 +1,11 @@
 <div mat-dialog-title>
-    <h1>Add to company</h1>
+    <h1>{{'Add to company' | translate}}</h1>
 </div>
 <form [formGroup]="contactForm" (ngSubmit)="onFormSubmit()">
     <div mat-dialog-content class="content">
         <div class="row">
             <mat-form-field appearance="fill">
-                <mat-label>Company</mat-label>
+                <mat-label>{{'Company' | translate}}</mat-label>
                 <mat-select formControlName="company">
                     <mat-option *ngFor="let val of companiesData" [value]="val.id">{{val.code}}
                     </mat-option>
@@ -14,7 +14,7 @@
         </div>
     </div>
     <div mat-dialog-actions class="action">
-        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
-        <button mat-raised-button color="primary" type="submit">save</button>
+        <button mat-raised-button type="button" [mat-dialog-close]="false">{{'Cancel' | translate}}</button>
+        <button mat-raised-button color="primary" type="submit">{{'save' | translate}}</button>
     </div>
 </form>

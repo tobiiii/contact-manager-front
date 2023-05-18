@@ -11,7 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
@@ -41,9 +41,16 @@ import { AddEditContactComponent } from './dialogs/add-edit-contact/add-edit-con
 import { JwtInterceptor } from './helpers/JwtInterceptor';
 import { ChangePassComponent } from './dialogs/change-pass/change-pass.component';
 import { ShowPrivilegeComponent } from './dialogs/show-privilege/show-privilege.component';
-import { ShowContactsComponent } from './dialogs/show-contacts/show-contacts.component';
+import { ShowContactsComponent } from './dialogs/show-contacts/show-contacts.component'; 
 import { ShowCompaniesComponent } from './dialogs/show-companies/show-companies.component';
 import { AddContactToCompanyComponent } from './dialogs/add-contact-to-company/add-contact-to-company.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 
 @NgModule({
   declarations: [
@@ -93,12 +100,21 @@ import { AddContactToCompanyComponent } from './dialogs/add-contact-to-company/a
     MatPaginatorModule,
     MatSortModule,
     MatSnackBarModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  }),
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: JwtInterceptor,
     multi: true,
-  },],
+  },
+  HttpClient
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

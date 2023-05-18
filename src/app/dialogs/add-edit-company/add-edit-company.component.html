@@ -1,25 +1,25 @@
 <div mat-dialog-title>
-    <h1>Company Form</h1>
+    <h1>{{'Company Form' | translate}}</h1>
 </div>
 <form [formGroup]="companyForm" (ngSubmit)="onFormSubmit()">
     <div mat-dialog-content class="content">
         <div class="row">
             <mat-form-field appearance="outline">
-                <mat-label>Code</mat-label>
+                <mat-label>{{'Code' | translate}}</mat-label>
                 <input matInput type="text" placeholder="Ex. poliscrypts" formControlName="code">
             </mat-form-field>
             <mat-form-field appearance="outline">
-                <mat-label>Address</mat-label>
+                <mat-label>{{'Address' | translate}}</mat-label>
                 <input matInput type="text" placeholder="Ex. brussel belgium" formControlName="address">
             </mat-form-field>
         </div>
         <div class="row">
             <mat-form-field appearance="outline">
-                <mat-label>Tva</mat-label>
+                <mat-label>{{'Tva' | translate}}</mat-label>
                 <input matInput type="text" placeholder="Ex. BE 0123 456 789" formControlName="tva">
             </mat-form-field>
             <mat-form-field appearance="fill">
-                <mat-label>Contacts</mat-label>
+                <mat-label>{{'Contacts' | translate}}</mat-label>
                 <mat-select  formControlName="contacts" multiple >
                     <mat-option *ngFor="let val of contactData" [value]="val.id">{{val.lastName}} {{val.firstName}}
                     </mat-option>
@@ -29,7 +29,7 @@
 
     </div>
     <div mat-dialog-actions class="action">
-        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
-        <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'}}</button>
+        <button mat-raised-button type="button" [mat-dialog-close]="false">{{'Cancel' | translate}}</button>
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'| translate}}</button>
     </div>
 </form>

@@ -3,22 +3,22 @@
     <img src="./assets/logo.svg" alt="Company Logo" />
   </div>
   <mat-divider></mat-divider>
-  <h2 matSubheader class="mt-2">Contact manager</h2>
+  <h2 matSubheader class="mt-2">{{'Contact manager' | translate}}</h2>
 
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/user" *ngIf="isAdmin">
     <mat-icon>home</mat-icon> 
-    <mat-label style="color: #f2f5f7;">User</mat-label> 
+    <mat-label style="color: #f2f5f7;">{{'Users' | translate}}</mat-label> 
   </a>
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/profile" *ngIf="isAdmin">
     <mat-icon>home</mat-icon> 
-    <mat-label style="color: #f2f5f7;">Profile</mat-label>
+    <mat-label style="color: #f2f5f7;">{{'Profiles' | translate}}</mat-label>
   </a>
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/company">
     <mat-icon>home</mat-icon> 
-    <mat-label style="color: #f2f5f7;">Company</mat-label>
+    <mat-label style="color: #f2f5f7;">{{'Companies' | translate}}</mat-label>
   </a>
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/contact">
     <mat-icon>home</mat-icon> 
-    <mat-label style="color: #f2f5f7;">Contact</mat-label>
+    <mat-label style="color: #f2f5f7;">{{'Contacts' | translate}}</mat-label>
   </a>
 </mat-nav-list>

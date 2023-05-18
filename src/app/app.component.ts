@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,10 @@ export class AppComponent implements OnInit{
   sideBarToggler() {
     this.sideBarOpen = !this.sideBarOpen;
   }
-  constructor(private router: Router) {
+  constructor(private router: Router,
+    private translateService:TranslateService) {
+      this.translateService.setDefaultLang('en');
+      this.translateService.use(localStorage.getItem('lang') || 'en');
     router.events.subscribe((val)=>{
       this.isLoggedIn = !!localStorage.getItem('token');
     });
