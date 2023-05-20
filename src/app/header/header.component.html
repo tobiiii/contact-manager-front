@@ -1,0 +1,36 @@
+<mat-toolbar>
+  <mat-toolbar-row class="justify-content-between">
+    <button mat-icon-button (click)="toggleSidebar()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class="row">
+      <div class="col-4">
+        <select  (change)="changeLang($any($event.target).value)">
+          <option value="en" [selected]="lang == 'en'">English</option>
+          <option value="fr" [selected]="lang == 'fr'">French</option>
+        </select>
+      </div>
+      <div class="col-3">
+        <div class="row mr-2 ml-auto">
+          <ul class="row m-0 align-items-center">
+            <li>
+              <button mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-items-center">
+                <img src="./assets/user.jpeg" alt="" class="user-image mr-1 p-2" />
+
+                {{userFullName}}
+                <mat-icon class="user-image-icon ml-1">keyboard_arrow_down
+                </mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item [routerLink]="['/logout']">
+                  <mat-icon>exit_to_app</mat-icon>
+                  {{'Logout' | translate}}
+                </button>
+              </mat-menu>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

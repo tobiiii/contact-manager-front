@@ -1,0 +1,55 @@
+<div mat-dialog-title>
+    <h1>{{'Company Form' | translate}}</h1>
+</div>
+<form [formGroup]="contactForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>{{'Code' | translate}}</mat-label>
+                <input matInput type="text" placeholder="Ex. poliscrypts" formControlName="code">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>{{'First Name' | translate}}</mat-label>
+                <input matInput type="text" placeholder="Ex. Abdelwakil" formControlName="firstName">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>{{'Last Name' | translate}}</mat-label>
+                <input matInput type="text" placeholder="Ex. Rabidi" formControlName="lastName">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>{{'Address' | translate}}</mat-label>
+                <input matInput type="text" placeholder="Ex. brussel belgium" formControlName="address">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>{{'Tva' | translate}}</mat-label>
+                <input matInput type="text" placeholder="Ex. BE 0123 456 789" formControlName="tva">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>{{'Type' | translate}}</mat-label>
+                <mat-select formControlName="type">
+                    <mat-option value="EMPLOYEE">EMPLOYEE</mat-option>
+                    <mat-option value="FREELANCE">FREELANCE</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <mat-form-field appearance="fill">
+            <mat-label>{{'Companies' | translate}}</mat-label>
+            <mat-select formControlName="companies" multiple>
+                <mat-option *ngFor="let val of companiesData" [value]="val.id">{{val.code}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">{{'Cancel' | translate}}</button>
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'| translate}}</button>
+    </div>
+</form>
